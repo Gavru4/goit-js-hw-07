@@ -32,17 +32,13 @@ function onGetUrl(event) {
   const modal = basicLightbox.create(`
     <img src="${dataUrl}" width="800" height="600">`)
   modal.show()
-}
 
-document.addEventListener("keydown", modalClose);
+  document.addEventListener("keydown", modalClose);
 
 function modalClose (event){
-  if (event === "Escape")
-    modal.close()
-}
+  if (event.code === "Escape")
+  return modal.close()
+}};
 
-  // modal.close((e) => {
-  //   if (e === "Escape") return
-  // })
  
 
