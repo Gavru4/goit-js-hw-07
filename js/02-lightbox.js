@@ -7,8 +7,20 @@ const refs  = {
 galeryList: document.querySelector(".gallery")
 }
 
-const galeryMarcup = galleryItems.map(({ description, original, preview }) => {
-    `<li><a class="gallery__item" href="large-image.jpg">
-  <img class="gallery__image" src="small-image.jpg" alt="Image description" />
-</a></li>`
-})
+const galeryMarcup = galleryItems.map(({description, original, preview}) => {
+  return `<li> 
+  <a class="gallery__item" href="${original}">
+  <img class="gallery__image" src="${preview}" alt="${description}" />
+</a>
+</li>`}).join("")
+
+refs.galeryList.insertAdjacentHTML("afterbegin", galeryMarcup);
+
+let galleryImg = document.querySelector(".gallery__image")
+
+  const lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: "alt",
+      captionDelay: 250,
+      
+   });
+  

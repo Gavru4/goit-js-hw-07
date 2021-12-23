@@ -25,7 +25,9 @@ refs.galeryList.insertAdjacentHTML("afterbegin",galeryMarkup)
 refs.galeryList.addEventListener("click", onGetUrl);
 
 function onGetUrl(event) {
+
   event.preventDefault();
+  
   if (event.target.tagName !== "IMG") return;
   const dataUrl = event.target.dataset.source;
 
