@@ -1,8 +1,7 @@
 
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
-
 console.log(galleryItems);
+
 
 const refs = {
     galeryList: document.querySelector(".gallery"),
@@ -29,7 +28,21 @@ function onGetUrl(event) {
   event.preventDefault();
   if (event.target.tagName !== "IMG") return;
   const dataUrl = event.target.dataset.source;
-  console.log(dataUrl);
+
+  const modal = basicLightbox.create(`
+    <img src="${dataUrl}" width="800" height="600">`)
+  modal.show()
 }
 
+document.addEventListener("keydown", modalClose);
+
+function modalClose (event){
+  if (event === "Escape")
+    modal.close()
+}
+
+  // modal.close((e) => {
+  //   if (e === "Escape") return
+  // })
+ 
 
